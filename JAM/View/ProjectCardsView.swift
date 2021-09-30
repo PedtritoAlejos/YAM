@@ -58,12 +58,7 @@ struct ProjectCardsView: View {
                             self.selectedProyecto = project
                         }
                         
-                       /*BasicRow(project: proyecto)
-                            .onTapGesture {
-                                self.showProjectDetail = true
-                                self.selectedProyecto = proyecto
-                            }
-                       */
+                     
                         
                     }.onDelete(perform: self.deleteProyecto)
                     
@@ -76,7 +71,7 @@ struct ProjectCardsView: View {
                         }, label: {
                            Image(systemName: "plus")
                             .font(.title)
-                            .foregroundColor(.black)
+                            .foregroundColor(Color("icon"))
                         }
                             ).sheet(isPresented: $showProyectoAddView, content: {
                                 ProyectoAddView().environmentObject(self.proyectoLVM)
@@ -89,7 +84,7 @@ struct ProjectCardsView: View {
                                }, label: {
                                         Image(systemName: "line.horizontal.3.decrease")
                                          .font(.title)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(Color("icon"))
                                         } ).sheet(isPresented: $showSettingView, content: {
                                             SettingsView().environmentObject(self.settings)
                                         })

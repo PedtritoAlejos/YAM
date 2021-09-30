@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TopBarDetailView: View {
    @Binding var selected: Bool
-      //@State private var  selected : Bool = true
+     
     
     var body: some View {
         VStack(){
@@ -21,11 +21,11 @@ struct TopBarDetailView: View {
                 } ){
                     Text("ver")
                         .fontWeight(.semibold)
-                        .foregroundColor(self.selected ? .black : Color.black.opacity(0.5))
+                        .foregroundColor(self.selected ? Color("icon") : Color("icon").opacity(0.5))
                         .font(.system(.body ,design: .rounded))
                         .bold()
                     Image(systemName: "book")
-                        .foregroundColor(self.selected ?  .black : Color.black.opacity(0.5))
+                        .foregroundColor(self.selected ?  Color("icon") : Color("icon").opacity(0.5))
                     
                 }.padding(.leading,35)
                 Spacer()
@@ -35,11 +35,11 @@ struct TopBarDetailView: View {
                 } ){
                     Text("Editar")
                         .fontWeight(.semibold)
-                        .foregroundColor(self.selected == false ? .black : Color.black.opacity(0.5))
+                        .foregroundColor(self.selected == false ? Color("icon") : Color("icon").opacity(0.5))
                         .font(.system(.body ,design: .rounded))
                         .bold()
                     Image(systemName: "square.and.pencil")
-                        .foregroundColor(self.selected == false ? .black : Color.black.opacity(0.5))
+                        .foregroundColor(self.selected == false ? Color("icon") : Color("icon").opacity(0.5))
                         
                    
                 }.padding(.trailing,35)

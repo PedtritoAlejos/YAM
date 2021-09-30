@@ -14,11 +14,7 @@ struct ProyectoAddView: View {
     
     
     @State private var selectedTipo = TypeProyecto.backend
-    @State private var nombre :String = ""
-    @State private var descripcion: String = ""
-    @State private var horaestimada :String = "0"
-    @State private var valorhora : String = "0"
-    @State private var horaactuales :String = "0"
+    
     @State private var isFavoriteProyecto : Bool = false
     @State private var imgeProyecto : String  = ""
     @State private var selectedTipoImagen = TypeImagen.d1
@@ -72,7 +68,7 @@ struct ProyectoAddView: View {
                     )
                 }
                 
-                Section(header:Text("VALOR HORA MAX 10 DIGITOS")){
+                Section(header:Text("VALOR HORA : $\(intToCurrencyString( param_price: Int(registrationVM.valorHora) ??  0 ) )")){
                     TextField("Ingrese valor hora",text: $registrationVM.valorHora)
                     
                        .onReceive(Just( registrationVM.valorHora ) ){ newValue in
@@ -182,11 +178,11 @@ struct ProyectoAddView: View {
     func saveProyecto(){
         self.proyectoLVM.tipo = self.selectedTipo.descripcionTipo
         self.proyectoLVM.favorito = self.isFavoriteProyecto
-        self.proyectoLVM.nombre = self.nombre
-        self.proyectoLVM.descripcion = self.descripcion
-        self.proyectoLVM.valorhora = Int(self.valorhora) ?? 0
-        self.proyectoLVM.horaestimada = Int(self.horaestimada) ?? 0
-        self.proyectoLVM.numerohoras = Int (self.horaactuales) ?? 0
+        self.proyectoLVM.nombre = self.registrationVM.nombre
+        self.proyectoLVM.descripcion = self.registrationVM.descripcion
+        self.proyectoLVM.valorhora = Int(self.registrationVM.valorHora) ?? 0
+        self.proyectoLVM.horaestimada = Int(self.registrationVM.horasEstimada) ?? 0
+        self.proyectoLVM.numerohoras = Int (self.registrationVM.horasActuales) ?? 0
         self.proyectoLVM.imagen = self.selectedTipoImagen.nameImagen
         
         self.proyectoLVM.save()
@@ -199,6 +195,17 @@ struct ProyectoAddView: View {
       
       
     }
+    func intToCurrencyString( param_price:Int) -> String{
+            let price = Double(param_price)
+            let numberFormatter = NumberFormatter()
+            numberFormatter.groupingSeparator = "."
+            numberFormatter.groupingSize = 3
+            numberFormatter.usesGroupingSeparator = true
+            numberFormatter.decimalSeparator = ","
+            numberFormatter.numberStyle = .decimal
+            numberFormatter.maximumFractionDigits = 2
+            return numberFormatter.string(from: price as NSNumber)!
+        }
 }
 
 struct ImagenVisualization: View {
@@ -224,6 +231,7 @@ struct ImagenVisualization: View {
                 
         }
     }
+  
 }
 
 struct ProyectoAddView_Previews: PreviewProvider {

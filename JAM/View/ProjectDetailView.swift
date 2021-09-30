@@ -55,7 +55,7 @@ struct ProjectDetailView: View {
                 
               
             }
-            .background(Color.white)
+            .background(Color("topBar"))
             .cornerRadius(15,antialiased: true)
             .offset(y:  geometry.size.height * 0.4 + self.dragState.translation.height + self.offset )
             .animation(.interpolatingSpring(stiffness: 500, damping: 500 , initialVelocity:10))
