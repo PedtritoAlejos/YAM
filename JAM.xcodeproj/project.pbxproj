@@ -50,7 +50,6 @@
 		4AA77A0126FFB043003D6FD6 /* ProjectAppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProjectAppModel.xcdatamodel; sourceTree = "<group>"; };
 		4AA77A0326FFC03A003D6FD6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		4AA77A0626FFC899003D6FD6 /* ProyectoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProyectoViewModel.swift; sourceTree = "<group>"; };
-		4AD36A0C26FA156A001501FC /* FactoryProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryProject.swift; sourceTree = "<group>"; };
 		4AD36A0F26FA1660001501FC /* DragState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragState.swift; sourceTree = "<group>"; };
 		4AD36A1126FA1995001501FC /* ProjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailView.swift; sourceTree = "<group>"; };
 		4AD36A1326FA19DC001501FC /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -142,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				4AE42DBD26F926FD004843B9 /* Project.swift */,
-				4AD36A0C26FA156A001501FC /* FactoryProject.swift */,
 				4AD36A0F26FA1660001501FC /* DragState.swift */,
 				4A8F706426FD048300E89FCA /* SortingOrderType.swift */,
 				4A8F706626FD08F700E89FCA /* SettingFactory.swift */,
