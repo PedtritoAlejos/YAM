@@ -11,8 +11,6 @@ import Combine
 struct ProyectoAddView: View {
     
     
-    
-    
     @State private var selectedTipo = TypeProyecto.backend
     
     @State private var isFavoriteProyecto : Bool = false
@@ -23,7 +21,7 @@ struct ProyectoAddView: View {
     @State private var  messageProyecto:String = ""
     
     @State private var isValidForm:Bool = false
-    
+  
     @Environment(\.presentationMode) var presentationMode
     
     @EnvironmentObject var proyectoLVM :ProyectoListViewModel
@@ -68,8 +66,12 @@ struct ProyectoAddView: View {
                     )
                 }
                 
+               
+                
                 Section(header:Text("VALOR HORA : $\(intToCurrencyString( param_price: Int(registrationVM.valorHora) ??  0 ) )")){
                     TextField("Ingrese valor hora",text: $registrationVM.valorHora)
+                        .textContentType(.oneTimeCode)
+                            .keyboardType(.numberPad)
                     
                        .onReceive(Just( registrationVM.valorHora ) ){ newValue in
                            
@@ -93,6 +95,8 @@ struct ProyectoAddView: View {
                 
                 Section(header:Text("HORAS ESTIMADAS")){
                     TextField("Ingrese horas estimas",text: $registrationVM.horasEstimada)
+                        .textContentType(.oneTimeCode)
+                            .keyboardType(.numberPad)
                        
                         .onReceive(Just( registrationVM.horasEstimada ) ){ newValue in
                             var filtered = newValue.filter { "0123456789".contains($0) }
@@ -112,7 +116,8 @@ struct ProyectoAddView: View {
                 }
                 Section(header:Text("HORAS ACTUALES")){
                     TextField("Ingrese horas actuales",text: $registrationVM.horasActuales)
-                       
+                        .textContentType(.oneTimeCode)
+                            .keyboardType(.numberPad)
                         .onReceive(Just( registrationVM.horasActuales ) ){ newValue in
                             var filtered = newValue.filter { "0123456789".contains($0) }
                             filtered = String( filtered.prefix(4))

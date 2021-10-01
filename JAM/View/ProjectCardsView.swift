@@ -125,11 +125,19 @@ struct ProjectCardsView: View {
         return checkFavorite
     }
     private func deleteProyecto( at offsets :IndexSet ){
+        
         offsets.forEach{ index in
-            let proyecto = self.proyectoLVM.proyectos[index]
+         
+            
+            let proyecto = self.proyectoLVM.proyectos
+                            .filter(shouldShowProject)
+                            .sorted(by: self.settings.order.predicateSort())[index]
+            
             self.proyectoLVM.delete(proyecto: proyecto)
         }
         self.proyectoLVM.getAllProyecto()
+       
+       
     }
     
     

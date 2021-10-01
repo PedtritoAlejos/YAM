@@ -55,7 +55,7 @@ class CoreDataManager {
     func save(){
         do{
             try viewContext.save()
-            print("guardado desde core")
+         
             
         }catch{
             print("ocurrio un error")
